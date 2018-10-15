@@ -1,0 +1,25 @@
+{
+  "name": "muchconf-consul-provider",
+  "version": "1.0.0",
+  "description": "Consul provider for muchconf",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava ./tests/*.spec.js ./tests/**/*.spec.js --verbose"
+  },
+  "keywords": [
+    "muchconf",
+    "muchconf-provider",
+    "consul"
+  ],
+  "author": "Kasper Moskwiak <kasper.moskwiak@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "consul": "^0.34.0",
+    "mock-require": "^3.0.2",
+    "muchconf": "git+ssh://git@bitbucket.org/kmoskwiak/muchconf.git"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "sinon": "^7.0.0"
+  }
+}
