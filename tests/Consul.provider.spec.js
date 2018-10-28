@@ -1,6 +1,5 @@
 const test = require('ava');
 
-const sinon = require('sinon');
 const mockRequire = require('mock-require');
 const consulMock = require('./mocks/consul.mock');
 
@@ -42,5 +41,37 @@ test('should get configuration and convert strings to numbers', async (t) => {
        },
        p1: 1,
        p2: 'dwa'
+    });
+});
+
+test('should update configuration', async (t) => {
+    const ConsulProvider = require('../lib/Consul.provider');
+    let resolver;
+    let wait = new Promise((resolve) => {
+        resolver = resolve;
+    });
+    let config = {};
+
+    const consulProvider = new ConsulProvider({
+        key: 'updating',
+        watchInterval: 200
+    }, {
+        castNumbers: true
+    });
+
+    consulProvider.on('update', async () => {
+        config = await consulProvider.load();
+        resolver();
+    });
+
+    await consulProvider.load();
+    await wait;
+
+    t.deepEqual(config, {
+        dir: {
+            p3: 4
+        },
+        p1: 5,
+        p2: 'dwa'
     });
 });
