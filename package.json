@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "Consul provider for muchconf",
   "main": "index.js",
-  "homepage": "https://github.com/kmoskwiak/muchconf-conusl-provider",
+  "homepage": "https://github.com/kmoskwiak/muchconf-consul-provider",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmoskwiak/muchconf-conusl-provider"
+    "url": "https://github.com/kmoskwiak/muchconf-consul-provider"
   },
   "engines": {
     "node": ">=8.11.0"
   },
   "bugs": {
-    "url": "https://github.com/kmoskwiak/muchconf-conusl-provider/issues",
+    "url": "https://github.com/kmoskwiak/muchconf-consul-provider/issues",
     "email": "kasper.moskwiak@gmail.com"
   },
   "scripts": {
