@@ -5,25 +5,29 @@
   "main": "index.js",
   "homepage": "https://github.com/kmoskwiak/muchconf-conusl-provider",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/kmoskwiak/muchconf-conusl-provider"
+    "type": "git",
+    "url": "https://github.com/kmoskwiak/muchconf-conusl-provider"
   },
-  "engines" : { 
-    "node" : ">=8.11.0" 
+  "engines": {
+    "node": ">=8.11.0"
   },
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/kmoskwiak/muchconf-conusl-provider/issues",
     "email": "kasper.moskwiak@gmail.com"
   },
   "scripts": {
     "test": "ava ./tests/*.spec.js ./tests/**/*.spec.js --verbose"
   },
-  "keywords": ["muchconf","muchconf-provider","consul"],
+  "keywords": [
+    "muchconf",
+    "muchconf-provider",
+    "consul"
+  ],
   "author": "Kasper Moskwiak <kasper.moskwiak@gmail.com> (https://kspr.pl)",
   "license": "ISC",
   "dependencies": {
     "consul": "^0.34.0",
-    "muchconf": "git+ssh://git@bitbucket.org/kmoskwiak/muchconf.git"
+    "muchconf": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
