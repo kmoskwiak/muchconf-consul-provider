@@ -1,8 +1,11 @@
 # muchconf consul provider
 
+[![npm](https://img.shields.io/npm/v/muchconf-consul-provider.svg)](https://www.npmjs.com/package/muchconf-consul-provider)
+[![Build Status](https://travis-ci.org/kmoskwiak/muchconf-consul-provider.svg?branch=master)](https://travis-ci.org/kmoskwiak/muchconf-consul-provider)
+
 [Muchconf](https://github.com/kmoskwiak/muchconf) configuration provider for [consul](https://www.consul.io/) KV store. It supports application reloading on configuration update.
 
->Consul is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud  _(see: consul.io)_
+>Consul is a distributed service mesh to connect, secure, and configure services across any runtime platform and public or private cloud _(see: consul.io)_
 
 ## Getting started
 Install module using your favorite package manager.
