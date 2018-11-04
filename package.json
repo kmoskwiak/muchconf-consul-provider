@@ -27,7 +27,7 @@
   "license": "ISC",
   "dependencies": {
     "consul": "^0.34.0",
-    "muchconf": "^2.0.0"
+    "muchconf": "git+ssh://git@github.com:kmoskwiak/muchconf.git#develop"
   },
   "devDependencies": {
     "ava": "^0.25.0",

@@ -14,6 +14,7 @@ test('should connect to consul and get configuration', async (t) => {
         key: 'muchconf'
     });
 
+    await consulProvider.init();
     const config = await consulProvider.load();
 
     t.deepEqual(config, {
@@ -33,6 +34,7 @@ test('should get configuration and convert strings to numbers', async (t) => {
         castNumbers: true
     });
 
+    await consulProvider.init();
     const config = await consulProvider.load();
 
     t.deepEqual(config, {
@@ -59,6 +61,7 @@ test('should update configuration', async (t) => {
         castNumbers: true
     });
 
+    await consulProvider.init();
     consulProvider.on('update', async () => {
         config = await consulProvider.load();
         resolver();
@@ -74,4 +77,28 @@ test('should update configuration', async (t) => {
         p1: 5,
         p2: 'dwa'
     });
+});
+
+test('should initialize provider with existing configuration', async (t) => {
+    const ConsulProvider = require('../lib/Consul.provider');
+
+    const consulProvider = new ConsulProvider({
+        key: (config) => { 
+            return config.consulKey; }
+    });
+
+    await consulProvider.init({
+        consulKey: 'muchconf'
+    });
+
+    const config = await consulProvider.load();
+
+    t.deepEqual(config, {
+       dir: {
+           p3: '3'
+       },
+       p1: '1',
+       p2: 'dwa'
+    });
+
 });
