@@ -8,7 +8,7 @@ test.beforeEach(() => {
 });
 
 test('should connect to consul and get configuration', async (t) => {
-    const ConsulProvider = require('../lib/Consul.provider');
+    const { ConsulProvider } = require('../index');
 
     const consulProvider = new ConsulProvider({
         key: 'muchconf'
@@ -26,8 +26,27 @@ test('should connect to consul and get configuration', async (t) => {
     });
 });
 
+test('should connect to consul and get configuration using wrapper', async (t) => {
+    const { muchConsul } = require('../index');
+
+    const consulProvider = muchConsul({
+        key: 'muchconf'
+    });
+
+    await consulProvider.init();
+    const config = await consulProvider.load();
+
+    t.deepEqual(config, {
+       dir: {
+           p3: '3'
+       },
+       p1: '1',
+       p2: 'dwa'
+    });
+});
+
 test('should get configuration and convert strings to numbers', async (t) => {
-    const ConsulProvider = require('../lib/Consul.provider');
+    const { ConsulProvider } = require('../index');
     const consulProvider = new ConsulProvider({
         key: 'muchconf'
     }, {
@@ -47,7 +66,7 @@ test('should get configuration and convert strings to numbers', async (t) => {
 });
 
 test('should update configuration', async (t) => {
-    const ConsulProvider = require('../lib/Consul.provider');
+    const { ConsulProvider } = require('../index');
     let resolver;
     let wait = new Promise((resolve) => {
         resolver = resolve;
@@ -80,9 +99,33 @@ test('should update configuration', async (t) => {
 });
 
 test('should initialize provider with existing configuration', async (t) => {
-    const ConsulProvider = require('../lib/Consul.provider');
+    const { ConsulProvider } = require('../index');
 
     const consulProvider = new ConsulProvider({
+        key: (config) => { 
+            return config.consulKey; }
+    });
+
+    await consulProvider.init({
+        consulKey: 'muchconf'
+    });
+
+    const config = await consulProvider.load();
+
+    t.deepEqual(config, {
+       dir: {
+           p3: '3'
+       },
+       p1: '1',
+       p2: 'dwa'
+    });
+
+});
+
+test('should initialize provider with existing configuration using weapper', async (t) => {
+    const { muchConsul } = require('../index');
+
+    const consulProvider = muchConsul({
         key: (config) => { 
             return config.consulKey; }
     });

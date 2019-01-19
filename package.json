@@ -27,10 +27,10 @@
   "license": "ISC",
   "dependencies": {
     "consul": "^0.34.0",
-    "muchconf": "^3.0.0"
+    "muchconf": "^3.1.1"
   },
   "devDependencies": {
     "ava": "^0.25.0",
-    "mock-require": "^3.0.2"
+    "mock-require": "^3.0.3"
   }
 }
