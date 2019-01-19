@@ -17,10 +17,10 @@ Create muchconf configuration store with consul provider. `key` is name of direc
 
 ```js
 const { muchconf } = require('muchconf');
-const ConsulProvider = require('muchconf-conusl-provider');
+const { muchConsul } = require('muchconf-conusl-provider');
 
 const configStore = muchconf([
-    new ConsulProvider({
+    muchConsul({
         key: 'myService'
     })
 ]);
@@ -38,6 +38,10 @@ __Syntax:__
 
 ```js
 new ConsulProvider(options, commonProviderOptions);
+```
+or
+```js
+muchConsul(options, commonProviderOptions);
 ```
 
 | name             | type     | required  | default   | description    |
